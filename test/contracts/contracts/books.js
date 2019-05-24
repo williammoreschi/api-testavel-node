@@ -3,6 +3,7 @@ describe('Routes Books', () => {
   const defaultBook = {
     id: 1,
     name: 'Default Books',
+    description: 'Text Books',
   };
 
   beforeEach((done) => {
@@ -19,6 +20,7 @@ describe('Routes Books', () => {
       const booksList = Joi.array().items(Joi.object().keys({
         id: Joi.number(),
         name: Joi.string(),
+        description: Joi.string(),
         createdAt: Joi.date().iso(),
         updatedAt: Joi.date().iso(),
       }));
@@ -38,6 +40,7 @@ describe('Routes Books', () => {
       const book = Joi.object().keys({
         id: Joi.number(),
         name: Joi.string(),
+        description: Joi.string(),
         createdAt: Joi.date().iso(),
         updatedAt: Joi.date().iso(),
       });
@@ -56,12 +59,14 @@ describe('Routes Books', () => {
       const book = Joi.object().keys({
         id: Joi.number(),
         name: Joi.string(),
+        description: Joi.string(),
         createdAt: Joi.date().iso(),
         updatedAt: Joi.date().iso(),
       });
       const newBook = {
         id: 2,
         name: 'newBook',
+        description: 'Text Books',
       };
       request
         .post('/books')
@@ -78,6 +83,7 @@ describe('Routes Books', () => {
       const updateBook = {
         id: 1,
         name: 'Tralalala',
+        description: 'Tralalala',
       };
       const updateCount = Joi.array().items(1);
       request
