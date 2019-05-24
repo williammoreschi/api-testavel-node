@@ -6,6 +6,7 @@
         "expect":true,
         "request":true,
         "beforeEach":true,
-        "app":true
+        "app":true,
+        "td":true
     }
 }
