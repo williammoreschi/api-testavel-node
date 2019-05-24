@@ -9,4 +9,6 @@ export default {
       underscored: true,
     },
   },
+  jwtSecret: 'ApiBooks',
+  jwtSession: { session:false }
 };
