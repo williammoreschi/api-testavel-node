@@ -7,6 +7,8 @@
         "request":true,
         "beforeEach":true,
         "app":true,
-        "td":true
+        "td":true,
+        "Joi":true,
+        "joiAssert":true
     }
 }
