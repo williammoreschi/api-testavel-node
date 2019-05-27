@@ -1,8 +1,9 @@
+import HttpStatus from 'http-status';
 import BooksController from '../../../controllers/books';
 
 describe('Controlles Books', () => {
   describe('Get All books: getAll()', () => {
-    it('shoult return list of books', () => {
+    it('should  return list of books', () => {
       const Books = {
         findAll: td.function(),
       };
@@ -10,8 +11,8 @@ describe('Controlles Books', () => {
       const expectResponse = [{
         id: 1,
         name: 'teste 01',
-        created_at: '2016-05-23T15:36:44.692Z',
-        updated_at: '2016-05-23T15:36:44.692Z',
+        createdAt: '2016-05-23T15:36:44.692Z',
+        updatedAt: '2016-05-23T15:36:44.692Z',
       }];
 
       td.when(Books.findAll({})).thenResolve(expectResponse);
@@ -22,7 +23,7 @@ describe('Controlles Books', () => {
     });
   });
   describe('Get a book: getById()', () => {
-    it('shoult return a book', () => {
+    it('should  return a book', () => {
       const Books = {
         findOne: td.function(),
       };
@@ -30,8 +31,8 @@ describe('Controlles Books', () => {
       const expectResponse = {
         id: 1,
         name: 'teste 01',
-        created_at: '2016-05-23T15:36:44.692Z',
-        updated_at: '2016-05-23T15:36:44.692Z',
+        createdAt: '2016-05-23T15:36:44.692Z',
+        updatedAt: '2016-05-23T15:36:44.692Z',
       };
 
       td.when(Books.findOne({ where: { id: 1 } })).thenResolve(expectResponse);
@@ -43,7 +44,7 @@ describe('Controlles Books', () => {
   });
 
   describe('Create a book: create()', () => {
-    it('shoult create a book', () => {
+    it('should  create a book', () => {
       const Books = {
         create: td.function(),
       };
@@ -54,8 +55,8 @@ describe('Controlles Books', () => {
       const expectResponse = {
         id: 1,
         name: 'teste 01',
-        created_at: '2016-05-23T15:36:44.692Z',
-        updated_at: '2016-05-23T15:36:44.692Z',
+        createdAt: '2016-05-23T15:36:44.692Z',
+        updatedAt: '2016-05-23T15:36:44.692Z',
       };
 
       td.when(Books.create(requestBody)).thenResolve(expectResponse);
@@ -70,7 +71,7 @@ describe('Controlles Books', () => {
   });
 
   describe('Update a book: update()', () => {
-    it('shoult update an existing book', () => {
+    it('should  update an existing book', () => {
       const Books = {
         update: td.function(),
       };
@@ -82,8 +83,8 @@ describe('Controlles Books', () => {
       const expectResponse = {
         id: 1,
         name: 'Update book',
-        created_at: '2016-05-23T15:36:44.692Z',
-        updated_at: '2016-05-23T15:36:44.692Z',
+        createdAt: '2016-05-23T15:36:44.692Z',
+        updatedAt: '2016-05-23T15:36:44.692Z',
       };
 
       td.when(Books.update(requestBody, { where: { id: 1 } })).thenResolve(expectResponse);
@@ -95,7 +96,7 @@ describe('Controlles Books', () => {
   });
 
   describe('Delete a book: delete()', () => {
-    it('shoult delete an existing book', () => {
+    it('should  delete an existing book', () => {
       const Books = {
         destroy: td.function(),
       };
@@ -104,7 +105,7 @@ describe('Controlles Books', () => {
 
       const booksControllers = new BooksController(Books);
       return booksControllers.delete({ id: 1 })
-        .then(response => expect(response.statusCode).to.be.eql(204));
+        .then(response => expect(response.statusCode).to.be.eql(HttpStatus.NO_CONTENT));
     });
   });
 });
